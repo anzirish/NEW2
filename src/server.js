@@ -1,6 +1,8 @@
 import { configDotenv } from "dotenv";
 import express from "express"
 import { authRouter } from "./routes/authRouter.js";
+import { ticketRouter } from "./routes/ticketRouter.js";
+import { adminRouter } from "./routes/adminRouter";
 
 configDotenv();
 connectToDb();
@@ -10,6 +12,8 @@ const port = process.env.PORT;
 
 app.use(express.json());
 app.use('/api/auth', authRouter);
+app.use('/api/tickets', ticketRouter);
+app.use('/api/admin', adminRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({ msg: 'Server is running!!!' });
