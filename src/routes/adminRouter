@@ -5,7 +5,7 @@ import { getReports } from "../controllers/adminController.js";
 
 export const adminRouter = express.Router();
 
-adminRouter.use(authorize)
-adminRouter.use(roleAuth)
+adminRouter.use(authorize);
+adminRouter.use(roleAuth);
 
 adminRouter.get('/report', getReports);
